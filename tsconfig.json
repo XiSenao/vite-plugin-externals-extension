@@ -3,6 +3,8 @@
     "module": "ESNext",
     "target": "es2017",
     "lib": ["ESNext", "DOM"],
+    "declaration": true,
+    "declarationDir": "dist",
     "esModuleInterop": true,
     "strict": true,
     "strictNullChecks": true,

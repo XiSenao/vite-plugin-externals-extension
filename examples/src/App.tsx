@@ -1,3 +1,4 @@
+// eslint-disable-next-line node/no-missing-import
 import { useState } from 'react'
 import './App.css'
 
