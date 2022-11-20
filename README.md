@@ -11,8 +11,6 @@ English | [简体中文](./README-zh.md)
 A Vite/Rollup plugin which support external link.
 Inspired by Webpack. Applicable to the latest version of vite (v3.2.4), enjoy!
 
-## Running results
-
 ## Install
 
 ```bash
@@ -27,7 +25,7 @@ yarn add vite-plugin-externals-extension -D
 
 ## Usage
 
-Configure plugin like the following example to take effect without modifying any other information. support configuration links including `cjs` and `esm`( recommended [skypack](https://www.skypack.dev/) links).
+Configure plugin like the following example to take effect without modifying any other information. support configuration links including `CJS` and `ESM`( recommended [skypack](https://www.skypack.dev/) links).
 
 ```ts
 // vite.config.ts
@@ -74,7 +72,7 @@ interface ExternalExtensionType {
 }
 ```
 
-⚠️ **注意:**
+⚠️ **Note:**
 
 `getter` is an optional attribute which is no need to configure `getter` hooks when using `ESM` links, which is created for adapt to different `CJS` packages.
 
