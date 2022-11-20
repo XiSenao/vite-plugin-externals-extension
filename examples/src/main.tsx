@@ -1,27 +1,19 @@
-// eslint-disable-next-line node/no-missing-import
-import React from 'react'
-// @ts-ignore
-// eslint-disable-next-line node/no-missing-import
-import lodash from 'lodash'
+import React from 'react';
+import lodash from 'lodash';
+import redux from 'redux';
 
-// @ts-ignore
-// eslint-disable-next-line node/no-missing-import
-import redux from 'redux'
+import htm from 'htm';
 
-// @ts-ignore
-// eslint-disable-next-line node/no-missing-import
-import confetti from 'confetti'
-
-import ReactDOM from 'react-dom/client'
-import App from './App'
-import './index.css'
+import ReactDOM from 'react-dom';
+import App from './App';
+import './index.css';
 
 console.log('Module: lodash, info: ', lodash);
-console.log('Module: confetti, info: ', confetti);
+console.log('Module: htm, info: ', htm);
 console.log('Module: redux, info: ', redux);
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+ReactDOM.render((
   <React.StrictMode>
-    <App />
+    <App></App>
   </React.StrictMode>
-)
+), document.getElementById('root') as HTMLElement);

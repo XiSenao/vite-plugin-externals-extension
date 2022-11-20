@@ -91,10 +91,10 @@ function externalsExtensionResolver(options: ExternalExtensionType): PluginOptio
       exclude.push(
         ...await Promise.all(
           Object.entries(options).filter((option) => !option[1].getter).map(async (option) => {
-            const externalSubModuleRegExp = new RegExp(`${option[0]}\/`);
-            exclude.push(externalSubModuleRegExp);
+            // const externalSubModuleRegExp = new RegExp(`${option[0]}\/`);
+            // exclude.push(externalSubModuleRegExp);
             option[1].url = typeof option[1].url === "function" ? await option[1].url() : option[1].url;
-            externalSubModuleRegExpList.push([externalSubModuleRegExp, option[0], option[1].url]);
+            // externalSubModuleRegExpList.push([externalSubModuleRegExp, option[0], option[1].url]);
             return option[1].url;
           })
         )
@@ -142,5 +142,5 @@ function externalsExtensionResolver(options: ExternalExtensionType): PluginOptio
 }
 
 export function externalsExtension(options: ExternalExtensionType): PluginOption {
-  return [externalsExtensionResolver(options), externalsExtensionTransform()];
+  return [externalsExtensionResolver(options)];
 }

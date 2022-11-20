@@ -7,8 +7,8 @@ export default defineConfig({
   plugins: [
     react(),
     externalsExtension({
-      confetti: {
-        url: 'https://cdn.skypack.dev/canvas-confetti'
+      htm: {
+        url: 'https://cdn.skypack.dev/htm'
       },
       lodash: {
         url: 'https://cdn.skypack.dev/lodash',
@@ -20,7 +20,7 @@ export default defineConfig({
         url: 'https://cdn.bootcdn.net/ajax/libs/redux/4.2.0/redux.min.js'
       },
       react: {
-        url: 'https://cdn.skypack.dev/react',
+        url: 'https://cdn.skypack.dev/pin/react@v17.0.1-yH0aYV1FOvoIPeKBbHxg/mode=imports/optimized/react.js',
       }
     })
   ]

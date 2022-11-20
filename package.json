@@ -23,7 +23,7 @@
 	"homepage": "https://github.com/XiSenao/vite-plugin-externals-extension",
 	"bugs": "https://github.com/XiSenao/vite-plugin-externals-extension/issues",
 	"scripts": {
-		"build": "tsup",
+		"build": "tsup && cd examples && yarn build",
 		"lint": "eslint .",
 		"lint:fix": "eslint --fix .",
 		"type-check": "tsc --noEmit"
