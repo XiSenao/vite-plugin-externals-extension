@@ -32,7 +32,7 @@ Configure plugin like the following example to take effect without modifying any
 
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import { externalsExtension } from 'vite-plugin-externals-extension'
+import { compatLowVersion, externalsExtension } from 'vite-plugin-externals-extension'
 
 export default defineConfig({
   plugins: [
@@ -54,14 +54,31 @@ export default defineConfig({
         url: 'https://cdn.skypack.dev/pin/react@v17.0.1-yH0aYV1FOvoIPeKBbHxg/mode=imports/optimized/react.js',
       }
     })
-  ]
+  ],
+  // The vite version above 2.2.0 does not require additional injection of "external".
+  build: {
+    rollupOptions: {
+      external: await compatLowVersion()
+    }
+  }
 })
 
 ```
 
 ⚠️ **Note:**
 
-Considering the type dependency of `ts` on dependent modules and the `hidden injection` of sub-dependent modules, the modules that the project depends still need to be installed, but only need to install `dev' dependencies, which will not affect the package size at the time of production.
+1. Considering the type dependency of `ts` on dependent modules and the `hidden injection` of sub-dependent modules, the modules that the project depends still need to be installed, but only need to install `dev' dependencies, which will not affect the package size at the time of production.
+2. For the dependent `vite` version in the `2.0.0` ~ `2.2.0` interval, because `async plugin config` is not supported, `external` needs to be added manually. Just inject the following code:
+
+  ```js
+   {
+    build: {
+      rollupOptions: {
+        external: await compatLowVersion()
+      }
+    }
+   }
+   ```
 
 ## Configuration
 

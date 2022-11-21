@@ -31,7 +31,7 @@ yarn add vite-plugin-externals-extension -D
 
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import { externalsExtension } from 'vite-plugin-externals-extension'
+import { compatLowVersion, externalsExtension } from 'vite-plugin-externals-extension'
 
 export default defineConfig({
   plugins: [
@@ -53,14 +53,31 @@ export default defineConfig({
         url: 'https://cdn.skypack.dev/pin/react@v17.0.1-yH0aYV1FOvoIPeKBbHxg/mode=imports/optimized/react.js',
       }
     })
-  ]
+  ],
+  // vite 版本在 2.2.0 以上版本无需额外注入 external.
+  build: {
+    rollupOptions: {
+      external: await compatLowVersion()
+    }
+  }
 })
 
 ```
 
 ⚠️ **注意:**
 
-考虑到 `ts` 对依赖模块的类型依赖和子依赖模块的`隐性注入`，项目依赖的模块依旧需要安装，不过只需要安装 `dev` 依赖即可，不会影响生产时包体积。
+1. 考虑到 `ts` 对依赖模块的类型依赖和子依赖模块的`隐性注入`，项目依赖的模块依旧需要安装，不过只需要安装 `dev` 依赖即可，不会影响生产时包体积。
+2. 针对依赖 `vite` 版本在 `2.0.0` ~ `2.2.0` 区间，由于不支持 `async plugin config`，因此需要手动添加 `external`。额外注入以下代码即可：
+
+   ```js
+   {
+    build: {
+      rollupOptions: {
+        external: await compatLowVersion()
+      }
+    }
+   }
+   ```
 
 ## 配置项
 
