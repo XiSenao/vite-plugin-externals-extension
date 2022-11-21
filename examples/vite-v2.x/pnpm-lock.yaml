@@ -8,7 +8,7 @@ specifiers:
   react-dom: 17.0.1
   typescript: ^4.6.4
   vite: 2.0.0
-  vite-plugin-externals-extension: ^0.0.6
+  vite-plugin-externals-extension: ^0.0.7
 
 devDependencies:
   '@types/react': 17.0.1
@@ -18,7 +18,7 @@ devDependencies:
   react-dom: 17.0.1_react@17.0.1
   typescript: 4.9.3
   vite: 2.0.0
-  vite-plugin-externals-extension: 0.0.6_vite@2.0.0
+  vite-plugin-externals-extension: 0.0.7_vite@2.0.0
 
 packages:
 
@@ -659,8 +659,8 @@ packages:
       picocolors: 1.0.0
     dev: true
 
-  /vite-plugin-externals-extension/0.0.6_vite@2.0.0:
-    resolution: {integrity: sha512-5hItiB0IYTjtbyR2/39gFoj7GVZK9JgfvBCUC+on//fKiUpU6ePl6ULs07XuydwangdfdvkbE7Re8qdlrXGgbQ==}
+  /vite-plugin-externals-extension/0.0.7_vite@2.0.0:
+    resolution: {integrity: sha512-Y/Zu4Pu1JEaGJxoaH0AyVFG/rt1HaCLC9RkZyiPbohIpkSdDE9wwUa5BIYe1aeA+egk4ZXV+/QGkeYIfOQZkHg==}
     peerDependencies:
       vite: ^2.0.0 || ^3.0.0-0
     dependencies:
