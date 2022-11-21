@@ -13,7 +13,10 @@ specifiers:
   redux: ^4.2.0
   typescript: ^4.6.4
   vite: ^3.2.4
-  vite-plugin-externals-extension: ^0.0.1
+  vite-plugin-externals-extension: ^0.0.6
+
+dependencies:
+  react-dom: 17.0.1_react@17.0.1
 
 devDependencies:
   '@types/lodash': 4.14.189
@@ -24,11 +27,10 @@ devDependencies:
   htm: 3.1.1
   lodash: 4.17.21
   react: 17.0.1
-  react-dom: 17.0.1_react@17.0.1
   redux: 4.2.0
   typescript: registry.npmmirror.com/typescript/4.9.3
   vite: registry.npmmirror.com/vite/3.2.4
-  vite-plugin-externals-extension: 0.0.1_vite@3.2.4
+  vite-plugin-externals-extension: 0.0.6_vite@3.2.4
 
 packages:
 
@@ -336,7 +338,6 @@ packages:
 
   /js-tokens/4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
-    dev: true
 
   /lodash/4.17.21:
     resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
@@ -347,7 +348,6 @@ packages:
     hasBin: true
     dependencies:
       js-tokens: 4.0.0
-    dev: true
 
   /magic-string/0.26.7:
     resolution: {integrity: sha512-hX9XH3ziStPoPhJxLq1syWuZMxbDvGNbVchfrdCtanC7D13888bMFow61x8axrx+GfHLtVeAx2kxL7tTGRl+Ow==}
@@ -371,7 +371,6 @@ packages:
   /object-assign/4.1.1:
     resolution: {integrity: sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg==}
     engines: {node: '>=0.10.0'}
-    dev: true
 
   /object-inspect/1.12.2:
     resolution: {integrity: sha512-z+cPxW0QGUp0mcqcsgQyLVRDoXFQbXOwBaqyF7VIgI4TWNQsDHrBpUQslRmIfAoYWdYzs6UlKJtB2XJpTaNSpQ==}
@@ -400,7 +399,7 @@ packages:
       object-assign: 4.1.1
       react: 17.0.1
       scheduler: 0.20.2
-    dev: true
+    dev: false
 
   /react/17.0.1:
     resolution: {integrity: sha512-lG9c9UuMHdcAexXtigOZLX8exLWkW0Ku29qPRU8uhF2R9BN96dLCt0psvzPLlHc5OWkgymP3qwTRgbnw5BKx3w==}
@@ -425,7 +424,7 @@ packages:
     dependencies:
       loose-envify: 1.4.0
       object-assign: 4.1.1
-    dev: true
+    dev: false
 
   /side-channel/1.0.4:
     resolution: {integrity: sha512-q5XPytqFEIKHkGdiMIrY10mvLRvnQh42/+GoBlFW3b2LXLE2xxJpZFdm94we0BaoV3RwJyGqg5wS7epxTv0Zvw==}
@@ -449,8 +448,8 @@ packages:
     dev: true
     optional: true
 
-  /vite-plugin-externals-extension/0.0.1_vite@3.2.4:
-    resolution: {integrity: sha512-RJyxkfdRJii/ABNmxJ2rA5UPKXT3jdINs3WdiVweUmFXA+Ck/uXRO2+bCiaI2DB+P8pqVjbuXvxFImENhjBIrw==}
+  /vite-plugin-externals-extension/0.0.6_vite@3.2.4:
+    resolution: {integrity: sha512-5hItiB0IYTjtbyR2/39gFoj7GVZK9JgfvBCUC+on//fKiUpU6ePl6ULs07XuydwangdfdvkbE7Re8qdlrXGgbQ==}
     peerDependencies:
       vite: ^2.0.0 || ^3.0.0-0
     dependencies:

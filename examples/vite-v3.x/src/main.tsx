@@ -8,9 +8,11 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
 
+console.log('Module: React, info: ', React);
 console.log('Module: lodash, info: ', lodash);
 console.log('Module: htm, info: ', htm);
 console.log('Module: redux, info: ', redux);
+console.log('Module: ReactDOM, info: ', ReactDOM);
 
 ReactDOM.render((
   <React.StrictMode>

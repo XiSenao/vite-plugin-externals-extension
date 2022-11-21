@@ -16,9 +16,9 @@ const externalRE = /^(https?:)?\/\//;
 
 const isExternalUrl = (url: string) => externalRE.test(url);
 
-let tempConfig = {} as UserConfig;
-
 const exclude: Array<string | RegExp> = [];
+
+let tempOptions: ExternalExtensionType = {};
 
 function externalsExtensionResolverConfigFilter(): PluginOption {
   return {
@@ -35,8 +35,23 @@ function externalsExtensionResolverConfigFilter(): PluginOption {
   }
 }
 
-function externalsExtensionResolver(options: ExternalExtensionType): PluginOption {
+async function getExcludeUrls(options: ExternalExtensionType) {
+  if (exclude.length) {
+    return exclude;
+  }
+  exclude.push(
+    ...await Promise.all(
+      Object.entries(options).filter((option) => !option[1].getter).map(async (option) => {
+        option[1].url = typeof option[1].url === "function" ? await option[1].url() : option[1].url;
+        return option[1].url;
+      })
+    )
+  );
+  return exclude;
+}
 
+function externalsExtensionResolver(options: ExternalExtensionType): PluginOption {
+  tempOptions = options;
   return {
     name: 'vite-plugin-externals-extension',
     enforce: EnForceType.PRE,
@@ -50,20 +65,11 @@ function externalsExtensionResolver(options: ExternalExtensionType): PluginOptio
       return null;
     },
 
-    async config(config: UserConfig) {
-      tempConfig = config;
-      exclude.push(
-        ...await Promise.all(
-          Object.entries(options).filter((option) => !option[1].getter).map(async (option) => {
-            option[1].url = typeof option[1].url === "function" ? await option[1].url() : option[1].url;
-            return option[1].url;
-          })
-        )
-      );
+    async config() {
       return {
         build: {
           rollupOptions: {
-            external: exclude
+            external: await getExcludeUrls(tempOptions)
           }
         }
       };
@@ -100,6 +106,10 @@ function externalsExtensionResolver(options: ExternalExtensionType): PluginOptio
       return null;
     }
   };
+}
+
+export async function compatLowVersion(): Promise<(string | RegExp)[]> {
+  return await getExcludeUrls(tempOptions);
 }
 
 export function externalsExtension(options: ExternalExtensionType): PluginOption {
