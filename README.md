@@ -59,6 +59,10 @@ export default defineConfig({
 
 ```
 
+⚠️ **Note:**
+
+Considering the type dependency of `ts` on dependent modules and the `hidden injection` of sub-dependent modules, the modules that the project depends still need to be installed, but only need to install `dev' dependencies, which will not affect the package size at the time of production.
+
 ## Configuration
 
 The configuration type of plugin interface is as follows. The usage is a little similar to `webpack`, it may be clear at a glance through the above examples.
