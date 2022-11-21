@@ -1,7 +1,7 @@
 {
   "name": "demo-v3.x",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.6",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -11,7 +11,6 @@
   "devDependencies": {
     "@types/lodash": "^4.14.189",
     "react": "17.0.1",
-    "vite-plugin-externals-extension": "^0.0.1",
     "react-dom": "17.0.1",
     "@types/react": "17.0.1",
     "@types/react-dom": "17.0.1",
@@ -21,6 +20,7 @@
     "lodash": "^4.17.21",
     "redux": "^4.2.0",
     "typescript": "^4.6.4",
-    "vite": "^3.2.4"
+    "vite": "^3.2.4",
+    "vite-plugin-externals-extension": "^0.0.6"
   }
 }
