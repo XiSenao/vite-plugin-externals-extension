@@ -1,7 +1,7 @@
 {
   "name": "demo-v3.x",
   "private": true,
-  "version": "0.0.6",
+  "version": "0.0.7",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -20,7 +20,7 @@
     "redux": "^4.2.0",
     "typescript": "^4.6.4",
     "vite": "^3.2.4",
-    "vite-plugin-externals-extension": "^0.0.6"
+    "vite-plugin-externals-extension": "^0.0.7"
   },
   "dependencies": {
     "react-dom": "17.0.1"
