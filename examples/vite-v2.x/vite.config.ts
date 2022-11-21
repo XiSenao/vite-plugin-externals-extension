@@ -5,7 +5,8 @@ import { compatLowVersion, externalsExtension } from 'vite-plugin-externals-exte
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    react(),  
+    react(),
+    // @ts-ignore
     externalsExtension({
       react: {
         url: 'https://cdn.skypack.dev/pin/react@v17.0.1-yH0aYV1FOvoIPeKBbHxg/mode=imports/optimized/react.js',
