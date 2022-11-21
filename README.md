@@ -8,8 +8,8 @@ English | [简体中文](./README-zh.md)
   <a href="https://www.npmjs.com/package/@originjs/vite-plugin-federation"><img src="https://badgen.net/npm/license/vite-plugin-externals-extension" alt="License"></a>
  </p>
 
-A Vite/Rollup plugin which support external link.
-Inspired by Webpack. Applicable to the latest version of vite (v3.2.4), enjoy!
+A `Vite/Rollup` plugin which support external link.
+Inspired by Webpack. Support for `vite` versions including `2.x` and `3.x`, enjoy!
 
 ## Install
 
@@ -84,4 +84,4 @@ interface ExternalExtensionType {
 
 ## Example projects
 
-You can use the [example](https://github.com/XiSenao/vite-plugin-externals-extension/tree/main/examples) in the project to make a demonstration or debug according to your needs.
+You can use the [example v2.x](https://github.com/XiSenao/vite-plugin-externals-extension/tree/main/examples/vite-v2.x) or the [example v3.x](https://github.com/XiSenao/vite-plugin-externals-extension/tree/main/examples/vite-v3.x) in the project to make a demonstration or debug according to your needs.

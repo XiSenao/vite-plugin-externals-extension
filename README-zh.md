@@ -8,7 +8,7 @@
   <a href="https://www.npmjs.com/package/@originjs/vite-plugin-federation"><img src="https://badgen.net/npm/license/vite-plugin-externals-extension" alt="License"></a>
  </p>
 
-这是一个支持引入外部 `CDN` 链接的插件。作用类似于 `webpack` 中的 `external` 选项，适用于最新的 `Vite` 版本(v3.2.4)。心动不如行动，快来尝试一下吧!
+这是一个支持引入外部 `CDN` 链接的插件。作用类似于 `webpack` 中的 `external` 选项，支持 `vite` 版本包括 `2.x` 和 `3.x`。心动不如行动，快来尝试一下吧!
 
 ## 安装
 
@@ -83,4 +83,4 @@ interface ExternalExtensionType {
 
 ## 样例
 
-你可以根据需求来展示或调试所提供的 [例子](https://github.com/XiSenao/vite-plugin-externals-extension/tree/main/examples)。
+你可以根据需求来展示或调试项目提供的例子，例子包含 [vite v3.x](https://github.com/XiSenao/vite-plugin-externals-extension/tree/main/examples/vite-v3.x) 和 [vite v2.x](https://github.com/XiSenao/vite-plugin-externals-extension/tree/main/examples/vite-v2.x) 两大版本。

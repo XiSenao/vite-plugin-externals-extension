@@ -23,7 +23,7 @@
 	"homepage": "https://github.com/XiSenao/vite-plugin-externals-extension",
 	"bugs": "https://github.com/XiSenao/vite-plugin-externals-extension/issues",
 	"scripts": {
-		"build": "tsup && cd examples && yarn build",
+		"build": "tsup && cd examples && cd vite-v2.x && pnpm build && cd .. && cd vite-v3.x && pnpm build",
 		"lint": "eslint .",
 		"lint:fix": "eslint --fix .",
 		"type-check": "tsc --noEmit"
@@ -41,7 +41,7 @@
 		"eslint-plugin-node": "^11.1.0",
 		"tsup": "^6.5.0",
 		"typescript": "4.6.4",
-		"vite": "^3.2.4",
+		"vite": "2.9.13",
 		"vitest": "^0.25.2"
 	},
 	"dependencies": {

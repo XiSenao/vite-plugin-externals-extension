@@ -23,6 +23,8 @@ let tempConfig = {} as UserConfig;
 
 const externalSubModuleRegExpList: [RegExp, string, string][] = [];
 
+const exclude: Array<string | RegExp> = [];
+
 function externalsExtensionTransform() {
   return {
     name: 'vite-plugin-externals-extension-transform',
@@ -70,8 +72,22 @@ function externalsExtensionTransform() {
   }
 }
 
+function externalsExtensionResolverConfigFilter(): PluginOption {
+  return {
+    name: "vite-plugin-externals-extension-config-filter",
+    enforce: EnForceType.POST,
+    async config(config: UserConfig) {
+      const include = config.optimizeDeps?.include ?? [];
+      include?.forEach((url, index) => {
+        if (exclude.includes(url)) {
+          include.splice(index, 1);
+        }
+      });
+    }
+  }
+}
+
 function externalsExtensionResolver(options: ExternalExtensionType): PluginOption {
-  const exclude: Array<string | RegExp> = [];
 
   return {
     name: 'vite-plugin-externals-extension',
@@ -142,5 +158,5 @@ function externalsExtensionResolver(options: ExternalExtensionType): PluginOptio
 }
 
 export function externalsExtension(options: ExternalExtensionType): PluginOption {
-  return [externalsExtensionResolver(options)];
+  return [externalsExtensionResolver(options), externalsExtensionResolverConfigFilter()];
 }
