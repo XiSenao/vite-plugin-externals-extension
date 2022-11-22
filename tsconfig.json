@@ -8,18 +8,17 @@
     "esModuleInterop": true,
     "strict": true,
     "strictNullChecks": true,
-    "moduleResolution": "Node",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "noUnusedParameters": true
+    "baseUrl": "src",
+    "rootDir": "src",
+    "noUnusedParameters": true,
+    "composite": true
   },
   "include": [
     "src/**/*",
-    "*.d.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "examples",
-    "dist"
+    "*.d.ts",
+    "examples/**/*"
   ]
 }

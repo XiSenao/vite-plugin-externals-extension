@@ -23,7 +23,12 @@
 	"homepage": "https://github.com/XiSenao/vite-plugin-externals-extension",
 	"bugs": "https://github.com/XiSenao/vite-plugin-externals-extension/issues",
 	"scripts": {
-		"build": "tsup && cd examples && cd vite-v2.x && pnpm build && cd .. && cd vite-v3.x && pnpm build",
+		"dev": "tsup --format cjs,esm --dts --clean --watch",
+		"build": "tsup --format cjs,esm --dts --clean --sourcemap",
+		"build-all": "make build",
+		"clean-all-node-modules": "make clean-node-modules",
+		"clean": "make clean",
+		"pre": "make pre",
 		"lint": "eslint .",
 		"lint:fix": "eslint --fix .",
 		"type-check": "tsc --noEmit"
