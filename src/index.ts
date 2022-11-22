@@ -4,12 +4,12 @@ interface ExternalExtensionType {
   [key: string]: {
     getter?: string | ((window: any) => any);
     url: string | (() => Promise<string>);
-  }
+  };
 }
 
 enum EnForceType {
   PRE = 'pre',
-  POST = 'post',
+  POST = 'post'
 }
 
 const externalRE = /^(https?:)?\/\//;
@@ -22,7 +22,7 @@ let tempOptions: ExternalExtensionType = {};
 
 function externalsExtensionResolverConfigFilter(): Plugin {
   return {
-    name: "vite-plugin-externals-extension-config-filter",
+    name: 'vite-plugin-externals-extension-config-filter',
     enforce: EnForceType.POST,
     async config(config: UserConfig) {
       const include = config.optimizeDeps?.include ?? [];
@@ -32,7 +32,7 @@ function externalsExtensionResolverConfigFilter(): Plugin {
         }
       });
     }
-  }
+  };
 }
 
 async function getExcludeUrls(options: ExternalExtensionType) {
@@ -40,12 +40,17 @@ async function getExcludeUrls(options: ExternalExtensionType) {
     return exclude;
   }
   exclude.push(
-    ...await Promise.all(
-      Object.entries(options).filter((option) => !option[1].getter).map(async (option) => {
-        option[1].url = typeof option[1].url === "function" ? await option[1].url() : option[1].url;
-        return option[1].url;
-      })
-    )
+    ...(await Promise.all(
+      Object.entries(options)
+        .filter((option) => !option[1].getter)
+        .map(async (option) => {
+          option[1].url =
+            typeof option[1].url === 'function'
+              ? await option[1].url()
+              : option[1].url;
+          return option[1].url;
+        })
+    ))
   );
   return exclude;
 }
@@ -74,19 +79,18 @@ function externalsExtensionResolver(options: ExternalExtensionType): Plugin {
         }
       };
     },
-    
+
     async transformIndexHtml() {
-      return Object
-              .entries(options)
-              .filter(option => !!option[1].getter)
-              .map(option => option[1].url as string)
-              .filter(isExternalUrl)
-              .map(url => ({
-                tag: 'script',
-                attrs: {
-                  src: url
-                }
-              }));
+      return Object.entries(options)
+        .filter((option) => !!option[1].getter)
+        .map((option) => option[1].url as string)
+        .filter(isExternalUrl)
+        .map((url) => ({
+          tag: 'script',
+          attrs: {
+            src: url
+          }
+        }));
     },
 
     async load(id: string) {
@@ -113,5 +117,8 @@ export async function compatLowVersion(): Promise<(string | RegExp)[]> {
 }
 
 export function externalsExtension(options: ExternalExtensionType): Plugin[] {
-  return [externalsExtensionResolver(options), externalsExtensionResolverConfigFilter()];
+  return [
+    externalsExtensionResolver(options),
+    externalsExtensionResolverConfigFilter()
+  ];
 }

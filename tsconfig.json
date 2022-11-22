@@ -16,7 +16,7 @@
     "composite": true
   },
   "include": [
-    "src/**/*",
-    "examples/**/*"
+    "src/**/*.*",
+    "examples/**/*.*"
   ]
 }
