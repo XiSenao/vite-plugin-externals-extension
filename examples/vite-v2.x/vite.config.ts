@@ -1,5 +1,4 @@
 import { defineConfig } from 'vite'
-import type { Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
 import { compatLowVersion, externalsExtension } from 'vite-plugin-externals-extension'
 
@@ -14,7 +13,7 @@ export default defineConfig({
       "react-dom": {
         url: "https://cdn.skypack.dev/pin/react-dom@v17.0.1-oZ1BXZ5opQ1DbTh7nu9r/mode=imports/optimized/react-dom.js"
       }
-    }) as Plugin
+    })
   ],
   build: {
     rollupOptions: {

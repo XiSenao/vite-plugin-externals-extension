@@ -10,27 +10,12 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "module": "ESNext",
-    "moduleResolution": "node",
+    "moduleResolution": "Node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
-    "composite": true,
-    "baseUrl": "src",
-    "plugins": [
-      {
-        "transform": "typescript-transform-paths"
-      },
-      {
-        "transform": "typescript-transform-paths",
-        "afterDeclarations": true
-      }
-    ],
-    "paths": {
-      "*": ["./*"],
-      "vite-plugin-externals-extension": ["../../../"]
-    }
+    "jsx": "react-jsx"
   },
-  "include": ["src", "./vite.config.ts"],
-  "references": [{ "path": "../../" }]
+  "include": ["src", "types"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

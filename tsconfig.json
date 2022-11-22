@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "jsx": "react-jsx",
     "module": "ESNext",
     "target": "es2017",
     "lib": ["ESNext", "DOM"],
@@ -11,14 +12,11 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "baseUrl": "src",
-    "rootDir": "src",
     "noUnusedParameters": true,
     "composite": true
   },
   "include": [
     "src/**/*",
-    "*.d.ts",
     "examples/**/*"
   ]
 }

@@ -1,4 +1,4 @@
-import type { PluginOption, UserConfig } from 'vite';
+import type { Plugin, UserConfig } from 'vite';
 
 interface ExternalExtensionType {
   [key: string]: {
@@ -20,7 +20,7 @@ const exclude: Array<string | RegExp> = [];
 
 let tempOptions: ExternalExtensionType = {};
 
-function externalsExtensionResolverConfigFilter(): PluginOption {
+function externalsExtensionResolverConfigFilter(): Plugin {
   return {
     name: "vite-plugin-externals-extension-config-filter",
     enforce: EnForceType.POST,
@@ -50,7 +50,7 @@ async function getExcludeUrls(options: ExternalExtensionType) {
   return exclude;
 }
 
-function externalsExtensionResolver(options: ExternalExtensionType): PluginOption {
+function externalsExtensionResolver(options: ExternalExtensionType): Plugin {
   tempOptions = options;
   return {
     name: 'vite-plugin-externals-extension',
@@ -112,6 +112,6 @@ export async function compatLowVersion(): Promise<(string | RegExp)[]> {
   return await getExcludeUrls(tempOptions);
 }
 
-export function externalsExtension(options: ExternalExtensionType): PluginOption {
+export function externalsExtension(options: ExternalExtensionType): Plugin[] {
   return [externalsExtensionResolver(options), externalsExtensionResolverConfigFilter()];
 }
