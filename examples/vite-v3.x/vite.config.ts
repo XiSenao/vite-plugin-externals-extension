@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { externalsExtension } from 'vite-plugin-externals-extension';
+import convertPathToRelative from './src/plugins/vite-plugin-convert-path-extension';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -30,5 +31,10 @@ export default defineConfig({
         url: 'https://cdn.skypack.dev/react-dom'
       }
     })
-  ]
+  ],
+  build: {
+    rollupOptions: {
+      plugins: [convertPathToRelative()]
+    }
+  }
 });

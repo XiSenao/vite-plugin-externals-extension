@@ -4,6 +4,7 @@ import {
   compatLowVersion,
   externalsExtension
 } from 'vite-plugin-externals-extension';
+import convertPathToRelative from './src/plugins/vite-plugin-convert-path-extension';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -20,7 +21,8 @@ export default defineConfig({
   ],
   build: {
     rollupOptions: {
-      external: await compatLowVersion()
+      external: await compatLowVersion(),
+      plugins: [convertPathToRelative()]
     }
   }
 });
