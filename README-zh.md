@@ -98,6 +98,36 @@ interface ExternalExtensionType {
 
 `url` 是一个必选项。你可以借此提供你所需的外部 `CDN` 链接，当然如果你需要异步的能力也是支持的。
 
+## 快速开发
+
+开发前首要工作如下：
+
+```bash
+# 安装所有依赖
+pnpm pre
+# 构建项目与软链产物
+pnpm build-all
+# 开发
+pnpm dev
+```
+
+`examples/` 目录下提供 `vite 2.x` 和 `vite 3.x` 两个版本的项目供开发者调试，插件在构建项目阶段已经将产物软链到两个样例项目的依赖上。
+
+```bash
+cd examples
+# 或者 cd vite-v3.x
+cd vite-v2.x
+pnpm build
+```
+
+为了优化项目开发体验，额外提供 `vite-plugin-convert-path-extension` 插件将构建输出到 `index.html` 的产物链接由原先的绝对路径改为了相对路径。因此用户在构建完成后可以直接在 `vscode` 上使用 `Open With Live Server` 的方式快速开启本地服务，检查项目构建产物是否合规也就意味着插件是否成功执行了能力。
+
+⚠️ **注意:**
+
+1. 若需要部署 `examples` 项目，请在 `vite.config.ts` 模块中移除 `vite-plugin-convert-path-extension` 插件。
+
+2. `vite-plugin-convert-path-extension` 插件只会对注入到 `index.html` 中的路径做重写。也就意味着产物内在运行时通过动态注入到 `index.html` 的链接不做重写处理。
+
 ## 样例
 
 你可以根据需求来展示或调试项目提供的例子，例子包含 [vite v3.x](https://github.com/XiSenao/vite-plugin-externals-extension/tree/main/examples/vite-v3.x) 和 [vite v2.x](https://github.com/XiSenao/vite-plugin-externals-extension/tree/main/examples/vite-v2.x) 两大版本。

@@ -99,6 +99,35 @@ interface ExternalExtensionType {
 
 `url` is a required option to configure the dependent external links you need. If you need asynchronous link need, also suits your appetite.
 
+## Quick Dev
+
+The first tasks before development are as follows:
+
+```bash
+# Install all dependencies
+pnpm pre
+# Build projects and soft link products
+pnpm build-all
+# Turn on development mode
+pnpm dev
+```
+
+The `vite 2.x` and `vite 3.x` versions of the project are available for developers to debug under the `examples/` directory, and the plugin has soft link the product to the dependencies of two sample projects during the build project.
+
+```bash
+cd examples
+# or `cd vite-v3.x`
+cd vite-v2.x
+pnpm build
+```
+
+In order to optimize the project development experience, the additional `vite-plugin-convert-path-extension` plugin will change the product link of the build output to `index.html` from the original absolute path to the relative path. Therefore, after the build is completed, users can quickly open the local service directly using `Open With Live Server` on `vscode`. Checking whether the project build product is as expected also means that the plugin has successfully executed.
+
+⚠️ **Note:**
+
+1. If you need to deploy the `examples` project, please remove `vite-plugin-convert-path-extens` plugin in the `vite.config.ts` module.
+2. The `vite-plugin-convert-path-extension` plugin will only rewrite the path injected into "index.html". This means that the url dynamically injected into "index.html" at runtime of the product is not rewritten.
+
 ## Example projects
 
 You can use the [example v2.x](https://github.com/XiSenao/vite-plugin-externals-extension/tree/main/examples/vite-v2.x) or the [example v3.x](https://github.com/XiSenao/vite-plugin-externals-extension/tree/main/examples/vite-v3.x) in the project to make a demonstration or debug according to your needs.
