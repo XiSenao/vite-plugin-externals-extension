@@ -11,6 +11,8 @@ English | [简体中文](./README-zh.md)
 A `Vite/Rollup` plugin which support external link.
 Inspired by Webpack. Support for `vite` versions including `2.x` and `3.x`, enjoy!
 
+> If you are interested in implementation, this [article](https://juejin.cn/post/7169534783783960613) can be used as a reference.
+
 ## Install
 
 ```bash
