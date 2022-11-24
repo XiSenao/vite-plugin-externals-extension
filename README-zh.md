@@ -54,7 +54,7 @@ export default defineConfig({
       }
     })
   ],
-  // vite 版本在 2.2.0 以上版本无需额外注入 external.
+  // 在 2.2.0 以上的 Vite 版本中引入 ESM 产物的 CDN 链接是不需要额外注入 external。
   build: {
     rollupOptions: {
       external: await compatLowVersion()
@@ -67,7 +67,7 @@ export default defineConfig({
 ⚠️ **注意:**
 
 1. 考虑到 `ts` 对依赖模块的类型依赖和子依赖模块的`隐性注入`，项目依赖的模块依旧需要安装，不过只需要安装 `dev` 依赖即可，不会影响生产时包体积。
-2. 针对依赖 `vite` 版本在 `2.0.0` ~ `2.2.0` 区间，由于不支持 `async plugin config`，因此需要手动添加 `external`。额外注入以下代码即可：
+2. `vite` 版本在 `2.0.0` ~ `2.2.0` 区间是不支持 `async plugin config`。若需要支持 `ESM` 产物的 `CDN` 链接，需要手动添加 `external`。额外注入以下代码即可：
 
    ```js
    {

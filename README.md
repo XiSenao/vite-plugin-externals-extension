@@ -55,7 +55,10 @@ export default defineConfig({
       }
     })
   ],
-  // The vite version above 2.2.0 does not require additional injection of "external".
+  /**
+   *  The CDN url to use ESM products in versions of Vite above 
+   *  2.2.0 does not require additional external injection.
+   **/ 
   build: {
     rollupOptions: {
       external: await compatLowVersion()
@@ -68,7 +71,7 @@ export default defineConfig({
 ⚠️ **Note:**
 
 1. Considering the type dependency of `ts` on dependent modules and the `hidden injection` of sub-dependent modules, the modules that the project depends still need to be installed, but only need to install `dev' dependencies, which will not affect the package size at the time of production.
-2. For the dependent `vite` version in the `2.0.0` ~ `2.2.0` interval, because `async plugin config` is not supported, `external` needs to be added manually. Just inject the following code:
+2. The `vite` version does not support `async plugin config` in the `2.0.0` ~ `2.2.0` interval. If you need to support the `CDN` url of the `ESM` product, you need to manually add `external`. Just inject the following code:
 
   ```js
    {
