@@ -27,7 +27,7 @@ yarn add vite-plugin-externals-extension -D
 
 ## Usage
 
-Configure plugin like the following example to take effect without modifying any other information. support configuration links including `CJS` and `ESM`( recommended [skypack](https://www.skypack.dev/) links).
+Configure plugin like the following example to take effect without modifying any other information. support configuration links including `UMD` and `ESM`( recommended [skypack](https://www.skypack.dev/) links).
 
 ```ts
 // vite.config.ts
@@ -100,7 +100,7 @@ interface ExternalExtensionType {
 
 ⚠️ **Note:**
 
-`getter` is an optional attribute which is no need to configure `getter` hooks when using `ESM` links, which is created for adapt to different `CJS` packages.
+`getter` is an optional attribute which is no need to configure `getter` hooks when using `ESM` links, which is created for adapt to different `UMD` packages.
 
 `url` is a required option to configure the dependent external links you need. If you need asynchronous link need, also suits your appetite.
 

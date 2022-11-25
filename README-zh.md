@@ -26,7 +26,7 @@ yarn add vite-plugin-externals-extension -D
 
 ## 使用
 
-只需要在 `vite.config` 模块中按照以下例子配置插件即可，而无需修改其他的源文件。可以引入打包成 `CJS` 或 `ESM`(推荐使用 [skypack](https://www.skypack.dev/) ) 的`CDN` 产物链接。
+只需要在 `vite.config` 模块中按照以下例子配置插件即可，而无需修改其他的源文件。可以引入打包成 `UMD` 或 `ESM`(推荐使用 [skypack](https://www.skypack.dev/) ) 的`CDN` 产物链接。
 
 ```ts
 // vite.config.ts
@@ -96,7 +96,7 @@ interface ExternalExtensionType {
 
 ⚠️ **注意:**
 
-`getter` 是一个可选项。如果你要使用产物为 `ESM` 的外部链接，无需进行配置。这个属性只为了兼容不同的 `CJS` 打包产物而提供的。
+`getter` 是一个可选项。如果你要使用产物为 `ESM` 的外部链接，无需进行配置。这个属性只为了兼容不同的 `UMD` 打包产物而提供的。
 
 `url` 是一个必选项。你可以借此提供你所需的外部 `CDN` 链接，当然如果你需要异步的能力也是支持的。
 
